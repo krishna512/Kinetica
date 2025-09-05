@@ -1,0 +1,88 @@
+{
+    "key": "group_585c151b99fc7",
+    "title": "Promote Up Front",
+    "fields": [
+        {
+            "allow_backendsearch": false,
+            "show_column_filter": 0,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_585c1561ee5e9",
+            "label": "Feature on the 'Whats New' Pulldown?",
+            "name": "promote_on_home",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Yes if you'd like to promote this in the menu and home page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "all"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "all"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tutorial"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "left",
+    "instruction_placement": "field",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "qef_simple_location_rules": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1719379930
+}

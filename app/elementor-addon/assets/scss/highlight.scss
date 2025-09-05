@@ -1,0 +1,148 @@
+.highlight.highlight-source-shell {
+  @apply flex justify-between bg-[var(--e-global-color-d77e5e1)] rounded border text-base leading-6 items-center;
+  background-color: var(--e-global-color-d77e5e1);
+  border: 1px solid hsla(0, 0%, 100%, 15%);
+  border-radius: 0.875rem;
+  max-height: 20rem;
+  overflow-y: scroll;
+
+  .source-shell .os-scrollbar {
+    --os-size: 5px;
+    padding: 0 0 2px;
+  }
+
+  // For allowing the codeblock container to stretch
+  &,
+  .code-wrapper,
+  pre {
+    height: 100%;
+  }
+
+  .code-wrapper {
+    width: 100%;
+  }
+
+  pre {
+    margin: 0;
+    padding: 2.75rem 0.75rem 1.375rem;
+    max-width: 100%;
+    color: white;
+    font-family: 'Source Code Pro';
+    font-size: 0.75rem;
+    line-height: 200%;
+    background: inherit;
+
+    // Don't add extra top padding in developer edition page
+    .page-id-3772 & {
+      padding: 1.375rem 0.75rem;
+    }
+
+    .hljs {
+      &-keyword {
+        font-weight: normal;
+
+        &:not(:first-child) {
+          color: hsl(202, 100%, 71%);
+        }
+      }
+
+      &-string {
+        color: hsl(130, 50%, 55%);
+      }
+
+      &-title,
+      &-number {
+        color: inherit;
+        font-weight: normal;
+      }
+
+      &-type,
+      &-operator {
+        color: white;
+      }
+
+      &-built_in {
+        color: hsl(274, 93%, 83%);
+      }
+
+      &-comment {
+        color: hsl(0, 0%, 64%);
+      }
+    }
+
+    &,
+    * {
+      white-space: pre-wrap; /* Since CSS 2.1 */
+      white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+      white-space: -pre-wrap; /* Opera 4-6 */
+      white-space: -o-pre-wrap; /* Opera 7 */
+      word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+  }
+
+  .js-clipboard-copy {
+    position: absolute;
+    top: 0.125rem;
+    left: calc(100% - 5.5rem); // To avoid layout shifting when the text changes.
+    z-index: 50;
+    padding: 0.75rem 0 0.75rem 0.75rem;
+    width: 4.375rem;
+    background: var(--e-global-color-d77e5e1);
+    border-radius: 12px 0 0 12px;
+    cursor: pointer;
+
+    .label,
+    .copy-icon {
+      filter: brightness(0.6);
+      transition: filter 0.4s ease-out;
+    }
+
+    .label {
+      color: white;
+      font-size: 0.75rem;
+      transition: color 0.4s ease-out;
+    }
+
+    .copy-icon {
+      font-size: 0.75rem;
+    }
+
+    svg {
+      display: flex;
+
+      path {
+        transition: all 0.4s ease-out;
+      }
+    }
+
+    &:hover {
+      .label,
+      .copy-icon {
+        filter: brightness(1);
+      }
+    }
+  }
+}
+
+// In the graph analytics page, for making the code centered.
+.centered-code {
+  .highlight.highlight-source-shell pre {
+    width: fit-content;
+    margin-inline: auto;
+    font-size: 0.8025rem;
+    line-height: 2;
+  }
+}
+
+.code-block-container-card {
+  display: flex;
+  flex-direction: column !important;
+
+  > div:first-child {
+    flex: 1;
+
+    > div {
+      height: 100%;
+    }
+  }
+}

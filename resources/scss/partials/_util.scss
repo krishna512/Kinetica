@@ -1,0 +1,22 @@
+:root {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+}
+
+.primary-btn-fill {
+  a {
+    @apply inline-flex px-[1.6rem] py-2 text-base text-white rounded-lg border border-solid font-semibold;
+    border-color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-primary);
+    transition: all 0.4s ease;
+
+    &:hover {
+      background-color: var(--e-global-color-0af7ad1);
+    }
+  }
+}

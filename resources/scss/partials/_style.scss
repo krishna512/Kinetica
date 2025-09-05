@@ -1,0 +1,111 @@
+.os-scrollbar-handle {
+  background: hsl(260, 4%, 73%);
+
+  &:is(:hover, :active) {
+    background: hsl(240, 4%, 95%);
+  }
+}
+
+.os-scrollbar-vertical .os-scrollbar-handle {
+  transition: 0.5s background-color ease;
+}
+
+p:last-child {
+  margin: 0;
+}
+
+b {
+  font-weight: 700;
+}
+
+ul {
+  margin: 0;
+}
+
+.elementor-widget-text-editor a {
+  --underline-width: 0%;
+  @apply relative no-underline transition-all duration-300 ease-linear;
+  color: var(--e-global-color-5e5ea90);
+  background: linear-gradient(currentColor 0 0) bottom left / var(--underline-width, 0%) 1px no-repeat;
+  padding-bottom: 0.2em;
+  text-decoration: none;
+
+  &:hover {
+    --underline-width: 100%;
+  }
+}
+
+.elementor-widget-text-editor .post-categories {
+  padding: 0;
+  display: flex;
+  gap: 5px;
+}
+
+.post-categories a {
+  padding: 4px 12px;
+  background-color: var(--e-global-color-primary);
+  display: inline-flex;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1;
+  transition: all ease 0.4s;
+}
+
+.post-categories a:hover {
+  background-color: var(--e-global-color-secondary);
+}
+
+/**
+  * Image widget as Background image
+  */
+.bg-image,
+.bg-image .elementor-widget-container {
+  width: 100%;
+  height: 100%;
+}
+
+/***
+  * Sticky header activated
+  */
+header.sticky-header.elementor-sticky--effects {
+  background-color: color-mix(in srgb, var(--e-global-color-fd492c2) 80%, transparent) !important;
+  box-shadow: 0px 4px 33px 1px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.elementor-button-content-wrapper {
+  align-items: center;
+}
+
+a.elementor-button svg {
+  font-size: 1.25rem;
+  transition: all 0.3s;
+}
+
+a.elementor-button .elementor-button-icon {
+  line-height: 1;
+}
+
+/**
+* Code Highlight DM
+**/
+#dm-copy-raw-code {
+  display: none;
+}
+
+// For generic scrollbars.
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(260, 4%, 73%);
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: hsl(240, 4%, 95%);
+  }
+}

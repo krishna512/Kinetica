@@ -1,0 +1,105 @@
+.logo-list-container {
+  > :is(.elementor-element, .e-con-inner) {
+    position: relative;
+
+    // For blurs to the left and right of the logo reel
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+      width: 6rem;
+      height: 2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      backdrop-filter: blur(2px);
+      z-index: 10;
+
+      @media screen and (min-width: 1024px) {
+        display: block;
+      }
+    }
+
+    &::before {
+      left: -2px;
+      background: linear-gradient(to right, #050f18, transparent);
+      mask: linear-gradient(to right, black, transparent);
+    }
+
+    &::after {
+      right: -2px;
+      background: linear-gradient(to left, #050f18, transparent);
+      mask: linear-gradient(to right, transparent 0%, black 100%);
+    }
+  }
+
+  .description {
+    display: none;
+  }
+
+  .logo-list {
+    // overflow: hidden;
+    height: 2rem;
+    // width: fit-content;
+
+    &.active .logo {
+      opacity: 0.35;
+    }
+
+    &.centre-logos {
+      display: flex;
+      justify-content: center;
+      gap: 3.75rem;
+      margin-inline: auto;
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: fit-content;
+      transition: opacity 0.35s ease-out;
+    }
+
+    img {
+      display: block;
+      max-height: 1.625rem;
+      width: auto;
+      height: auto;
+      transition: all 0.35s ease-out;
+    }
+
+    .logo.active img {
+      filter: blur(2px);
+    }
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+    transition-timing-function: linear;
+  }
+
+  .logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    height: fit-content;
+    color: white;
+    text-align: center;
+    font-size: 0.875rem;
+    opacity: 0;
+    z-index: 20;
+    transition:
+      opacity 0.35s ease-out,
+      transform 0.35s ease-out;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+ul.event-speakers {
+  @apply grid list-none grid-cols-1 p-0;
+
+  li {
+    @apply flex py-6 gap-3 border-t border-[#252129];
+    border-top-style: solid;
+
+    &:first-child {
+      @apply pt-0 border-t-0;
+    }
+
+    &:last-child {
+      @apply pb-0;
+    }
+
+    .photo {
+      @apply w-12 h-12 relative;
+
+      img {
+        @apply block rounded-full absolute left-0 top-0 w-full h-full object-cover;
+      }
+    }
+
+    .name {
+      @apply text-xl font-medium;
+    }
+
+    .designation {
+      @apply text-sm font-medium;
+    }
+  }
+}

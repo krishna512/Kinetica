@@ -1,0 +1,48 @@
+{
+    "key": "group_5be1fad58bd4d",
+    "title": "Resource HubSpot Lander",
+    "fields": [
+        {
+            "key": "field_5be1faedb9863",
+            "label": "URL",
+            "name": "url",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "template-resource-hubspot.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565883450
+}

@@ -1,0 +1,559 @@
+{
+    "key": "group_5b3a77b6ad80a",
+    "title": "Resource",
+    "fields": [
+        {
+            "allow_backendsearch": false,
+            "show_column_filter": false,
+            "allow_bulkedit": false,
+            "allow_quickedit": false,
+            "show_column": false,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_675975b1dbf00",
+            "label": "Resource Type",
+            "name": "resource_type",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": [
+                "resource-type"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "search_placeholder": "",
+            "multiple": 0,
+            "ajax": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "allow_in_bindings": 1,
+            "choices": [],
+            "placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0
+        },
+        {
+            "allow_backendsearch": false,
+            "show_column_filter": 0,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_63d35661c9c28",
+            "label": "Recording Available On?",
+            "name": "recording_available_on",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "183"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==contains",
+                        "value": "180"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "youtube": "YouTube",
+                "wistia": "Wistia",
+                "other": "Other"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "allow_backendsearch": 0,
+            "show_column_filter": false,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_63d3543ac9c27",
+            "label": "Wistia ID",
+            "name": "wistia_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "https:\/\/kineticadb.wistia.com\/medias\/<b style=\"color:red;\">q9rdtkkgmz<\/b>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==contains",
+                        "value": "183"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "wistia"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "180"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "wistia"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "allow_backendsearch": 0,
+            "show_column_filter": false,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_5b3b8c6b6b720",
+            "label": "Youtube Link",
+            "name": "youtube_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "183"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "youtube"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "180"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "youtube"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "placeholder": ""
+        },
+        {
+            "allow_backendsearch": 0,
+            "show_column_filter": false,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_63d3611226094",
+            "label": "Embed Code",
+            "name": "embed_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "If you are embedding a video that is not YouTube or Wistia, you can paste the embed script code in here.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "183"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "other"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "180"
+                    },
+                    {
+                        "field": "field_63d35661c9c28",
+                        "operator": "==",
+                        "value": "other"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 5,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "allow_backendsearch": false,
+            "show_column_filter": 0,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_67762d304e3cd",
+            "label": "PDF File And External Url",
+            "name": "pdf_and_external_url",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "182"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "186"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "179"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "184"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "181"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "188"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "PDF File": "Pdf File",
+                "External Url": "External Url"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "allow_backendsearch": false,
+            "show_column_filter": false,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_5b3b8e3257e2e",
+            "label": "PDF File",
+            "name": "pdf_file",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "182"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "186"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "179"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "184"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "181"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "188"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "PDF File"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0,
+            "library": "all"
+        },
+        {
+            "allow_backendsearch": 0,
+            "show_column_filter": false,
+            "allow_bulkedit": 0,
+            "allow_quickedit": 0,
+            "show_column": 0,
+            "show_column_weight": 1000,
+            "show_column_sortable": false,
+            "key": "field_5b3e142d4c82b",
+            "label": "External URL",
+            "name": "white_paper_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "182"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "186"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "179"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "184"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "181"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_675975b1dbf00",
+                        "operator": "==",
+                        "value": "188"
+                    },
+                    {
+                        "field": "field_67762d304e3cd",
+                        "operator": "==",
+                        "value": "External Url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "qef_simple_location_rules": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1735880042
+}

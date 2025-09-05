@@ -1,0 +1,97 @@
+{
+    "key": "group_5863f69ea31b2",
+    "title": "Attachment Meta",
+    "fields": [
+        {
+            "key": "field_5863f6ae75bce",
+            "label": "Make available on Resources Page",
+            "name": "make_available_as_resource",
+            "type": "radio",
+            "instructions": "PDFs and YouTube Videos uploaded to the site are automatically made available on the resources page unless excluded. Images, are not automatically included unless specifically checked.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Yes",
+                "0": "Auto",
+                "-1": "No"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": 0,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5ad100a4610f5",
+            "label": "Redirect to Landing Page",
+            "name": "redirect_to_landing_page",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check if users should be gated to access this resource?",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5ad100f6610f6",
+            "label": "Landing Page?",
+            "name": "landing_page",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ad100a4610f5",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "attachment",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 6,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565883731
+}

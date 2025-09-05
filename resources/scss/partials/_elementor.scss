@@ -1,0 +1,658 @@
+/**
+* Default padding to outer elementor element
+*/
+body > .elementor > .elementor-element,
+body > .elementor > .elementor-section-wrap > .elementor-element,
+body .page-content > .elementor > .elementor-element,
+body .page-content > .elementor > .elementor-section-wrap > .elementor-element {
+  padding-inline-end: var(--custom-padding);
+  padding-inline-start: var(--custom-padding);
+
+  @media screen and (min-width: 768px) {
+    --custom-padding: 2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    --custom-padding: 1.25rem;
+  }
+}
+
+/**
+* Gradient Text
+*/
+g {
+  font-weight: bold;
+  background: -webkit-radial-gradient(#d39aff, #783ca7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.e-n-tabs-heading {
+  > button:first-child {
+    @apply rounded-l-lg;
+  }
+
+  > button:last-child {
+    @apply rounded-r-lg;
+  }
+}
+
+/**
+* Elementor Pagination
+*/
+
+.elementor-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0;
+
+  .page-numbers {
+    @apply text-xs font-light leading-normal;
+    padding: 0.875rem 0.75rem;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid hsla(0, 0%, 100%, 15%);
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &.current {
+      color: var(--e-global-color-5e5ea90);
+      background-color: hsl(230, 25%, 12%);
+    }
+  }
+}
+
+/**
+ * Custom Cards
+ */
+
+.learn-more-text,
+.learn-more-card:before {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.learn-more-card {
+  position: relative;
+  background: linear-gradient(152.42deg, #161d26 -12.74%, rgba(22, 29, 38, 0.5) 83.93%) !important;
+  border: 1px solid hsla(0, 0%, 100%, 15%) !important;
+
+  // Bring the card contents above the gradient
+  * {
+    z-index: 5;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: linear-gradient(152.42deg, #263447 -12.74%, rgba(22, 29, 38, 0.5) 83.93%);
+    transition: all 0.4s ease-out;
+  }
+}
+
+.learn-more-card:hover .learn-more-text,
+.learn-more-card:hover:before {
+  opacity: 1;
+}
+
+.learn-more-card svg {
+  color: var(--e-global-color-primary);
+}
+
+.learn-more-card .elementor-widget-image {
+  overflow: hidden;
+}
+
+.learn-more-card img {
+  transition: 0.4s all ease;
+}
+
+.learn-more-card:hover img {
+  transform: scale(1.2);
+}
+
+/**
+ * Making sense
+ */
+.making-sense {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(15, 7, 39, 0.2) 0%, rgba(124, 51, 164, 0.2) 100%),
+    linear-gradient(0deg, #0f0727, #0f0727);
+}
+
+@media screen and (min-width: 768px) {
+  .making-sense {
+    --translateY: -70px;
+    --rotation: 3deg;
+  }
+  .focus-circle {
+    transform: translate(-50%, 50%) scale(1);
+  }
+
+  .focus-circle,
+  .sense-image,
+  .back-paper,
+  .back-paper-2 {
+    transition: all 0.5s ease;
+  }
+
+  .making-sense:hover .focus-circle {
+    transform: translate(-50%, 50%) scale(2.5);
+  }
+
+  .making-sense:hover .sense-image {
+    transform: translateY(var(--translateY)) scale(1.1) rotate(var(--rotation));
+  }
+
+  .making-sense:hover .back-paper {
+    transform: translateY(var(--translateY)) scale(1.26) rotate(var(--rotation));
+    left: 21px !important;
+    top: 50px;
+  }
+
+  .making-sense:hover .back-paper-2 {
+    transform: translateY(var(--translateY)) scale(1.26) rotate(var(--rotation));
+    left: 29px !important;
+    top: 65px;
+  }
+}
+
+/**
+ * Blog Term in featured card
+ */
+.elementor-post-info__terms-list-item {
+  padding: 0.25rem 0.625rem;
+  background: var(--e-global-color-1645d87);
+  border: 1px solid var(--e-global-color-d77e5e1);
+  border-radius: 4px;
+
+  &:last-child {
+    margin-left: -6px;
+  }
+
+  &:first-child {
+    margin-left: 0;
+    margin-right: 7px;
+  }
+}
+
+.elementor-post-info__item--type-author {
+  @apply capitalize;
+}
+
+/**
+ * Blog Content
+ */
+
+.elementor-widget-theme-post-content {
+  @apply text-base leading-[1.65];
+
+  .elementor-widget-container {
+    > * {
+      @apply mb-[1.625rem];
+    }
+
+    p {
+      @apply mb-[1.625rem];
+    }
+
+    ul,
+    ol {
+      @apply p-0;
+
+      ul,
+      ol {
+        @apply ml-8;
+      }
+
+      li {
+        @apply list-inside p-0 mb-[1rem];
+
+        &:last-child {
+          @apply mb-0;
+        }
+
+        img {
+          @apply my-4;
+        }
+      }
+
+      li::before {
+        content: '';
+        @apply w-2 inline-block;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      @apply mt-12;
+    }
+
+    a {
+      color: var(--e-global-color-primary);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--e-global-color-f61c0a9);
+      }
+    }
+
+    > *:first-child {
+      @apply mt-0;
+    }
+
+    > *:last-child {
+      @apply mb-0;
+    }
+  }
+}
+
+// glider js
+
+.custom-swiper .glider-track {
+  gap: 1rem;
+}
+
+.gradient-border-icon {
+  &.elementor-view-framed .elementor-icon {
+    position: relative;
+    border: 0;
+  }
+
+  &.elementor-view-framed .elementor-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(
+      89.07deg,
+      rgba(255, 255, 255, 0) -43.99%,
+      rgba(255, 255, 255, 0.203368) -23.31%,
+      rgba(255, 255, 255, 0.4) 2.93%,
+      rgba(238, 216, 255, 0.6) 9.66%,
+      rgba(212, 156, 255, 0.8) 27.1%,
+      #aa50f0 68.72%,
+      #aa50f0 98.36%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+.gradient-number .elementor-widget-container {
+  position: relative;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  height: 2rem !important;
+  min-width: 2rem;
+  width: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    padding: 0.063rem;
+    border: 1px solid var(--e-global-color-primary);
+  }
+}
+
+/* bg radial circle */
+.radial-circle {
+  position: relative;
+  overflow: hidden;
+}
+
+.radial-circle > .e-con-inner:before,
+.radial-circle > .e-con-inner:after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+// Copy-pasted from code snippets
+.radial-circle > .e-con-inner::before {
+  content: '';
+  width: 816px;
+  height: 816px;
+  border-radius: 100%;
+  background: linear-gradient(180deg, #0e7bf8 0%, rgba(14, 123, 248, 0) 86.35%);
+  filter: blur(400px);
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.radial-circle .e-con-inner:after {
+  content: none;
+}
+
+.elementor-shape svg.kinetica-wave {
+  transform: translateX(-50%) translateY(-60%);
+  width: auto;
+}
+
+.swiper {
+  @apply w-full;
+}
+
+/**
+**  Bento Grid CSS
+**/
+[data-element_type='container'] {
+  max-width: 100%;
+}
+
+.bento-card-gradient,
+.bento-card-gradient-no-hover {
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    top: calc(0px - var(--border-top-width));
+    left: calc(0px - var(--border-left-width));
+    width: max(100% + var(--border-left-width) + var(--border-right-width), 100%);
+    height: max(100% + var(--border-top-width) + var(--border-bottom-width), 100%);
+    z-index: 1;
+    transition: 0.4s all ease;
+  }
+
+  &:before {
+    background: linear-gradient(
+      31.84deg,
+      #161d26 26.61%,
+      rgba(22, 29, 38, 0.8) 56.04%,
+      rgba(22, 29, 38, 0.4) 119.91%,
+      rgba(22, 29, 38, 0.393732) 131.59%,
+      rgba(22, 29, 38, 0) 195.43%
+    );
+  }
+
+  &:after {
+    opacity: 0;
+    background: linear-gradient(42.83deg, #263447 32.33%, rgba(22, 29, 38, 0.4) 114.33%);
+  }
+
+  .elementor-widget-image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      transition: all linear 0.4s;
+    }
+  }
+
+  > div:not(.elementor-widget-image) {
+    @apply transition ease-linear translate-y-9 duration-300;
+  }
+
+  .learnmore {
+    @apply opacity-0;
+  }
+}
+
+.bento-card-gradient:hover {
+  &:before {
+    @apply opacity-0;
+  }
+
+  &:after {
+    @apply opacity-100;
+  }
+
+  .elementor-widget-image img {
+    transform: scale(1.2);
+  }
+
+  > div:not(:first-child) {
+    @apply translate-y-0;
+  }
+
+  .learnmore {
+    @apply opacity-100;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .grid-span-2 {
+    grid-column: span 2;
+  }
+}
+
+// For fading linear gradient in the text of hero section of inner pages.
+.inner-page-hero h1 {
+  background: linear-gradient(90deg, #ffffff 46.28%, rgba(255, 255, 255, 0.2) 104.96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+// From the temporary CSS in the admin dashboard
+.elementor-widget-text-editor .elementor-widget-container > p:first-child {
+  margin-top: 0;
+}
+
+.elementor-widget-text-editor .elementor-widget-container > p:last-child {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+#content
+  div.elementor.elementor-8604
+  div.elementor-element.elementor-element-2ed9e51.elementor-widget.elementor-widget-html
+  span.btn
+  button:first-child {
+  margin-left: 1rem;
+}
+
+span.btn button {
+  cursor: pointer;
+}
+
+span.btn button.toggleBtn:not(:hover) {
+  border: 1px solid transparent;
+}
+
+span.btn button.toggleBtn.active {
+  border: 1px solid #0e7bf8;
+}
+
+.elementor-element-a8ed81d.radial-circle .kinetica-wave {
+  display: none;
+}
+
+.radial-circle .learn-more-card {
+  background: linear-gradient(152.42deg, #161d26 -12.74%, rgba(22, 29, 38, 0.5) 83.93%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.radial-circle .learn-more-card .elementor-widget-text-editor p {
+  color: #bab8be;
+}
+.making-sense {
+  background: #063468 !important;
+}
+
+/* Home Build Learn More Button Css */
+.home-learn-more .elementor-widget-text-editor a {
+  color: #5ea7fa;
+  background: none;
+  -webkit-text-fill-color: inherit;
+  text-decoration: underline;
+}
+
+.blur-circle:after {
+  content: '';
+  position: absolute;
+  bottom: -90%;
+  width: 750px;
+  height: 700px;
+  background-color: #063468;
+  border-radius: 50%;
+  filter: blur(75px);
+}
+
+.blur-circle-contact:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(-25px);
+  width: 750px;
+  height: 700px;
+  background-color: #063468;
+  border-radius: 50%;
+  filter: blur(65px);
+}
+
+.blur-circle-rag:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -70%;
+  width: 750px;
+  height: 700px;
+  background-color: #063468;
+  border-radius: 50%;
+  filter: blur(75px);
+  transform: translateX(-50%);
+}
+
+.blur-circle-price:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(-25px);
+  width: 750px;
+  height: 700px;
+  background-color: #063468;
+  border-radius: 50%;
+  filter: blur(65px);
+}
+
+.blur-circle-price {
+  overflow: hidden;
+}
+
+.e-n-accordion-item-title + .e-con.e-flex {
+  margin-top: -0.75rem;
+}
+
+body.single-post .elementor-widget-theme-post-content .elementor-widget-container h1,
+body.single-post .elementor-widget-theme-post-content .elementor-widget-container h2,
+body.single-post .elementor-widget-theme-post-content .elementor-widget-container h3 {
+  color: var(--e-global-color-1645d87);
+}
+
+// News room page
+.elementor-widget-container button.yi-submit-btn {
+  padding: 0.25rem 1rem;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid var(--e-global-color-primary) !important;
+  border-radius: 4px;
+}
+
+pre code {
+  white-space: break-spaces;
+}
+
+// Buttons in the vector search page
+.unfolding-button.elementor-widget.elementor-widget-button {
+  .elementor-button {
+    position: relative;
+    &:hover {
+      padding-right: 2.5rem;
+
+      .elementor-button-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  .elementor-button-icon {
+    position: absolute;
+    right: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+}
+
+.homepage-slider-wrapper {
+  .glider-track {
+    margin-left: 1.25rem;
+    gap: 1rem;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      margin-left: 2rem;
+    }
+
+    // The following media queries are for adjusting the left margin to align with the logo in the navbarh
+    @media screen and (min-width: 1024px) {
+      margin-left: clamp(2rem, -36.438rem + 50vw, 6.25rem);
+    }
+
+    @media screen and (min-width: 1366px) {
+      margin-left: clamp(6.25rem, -36.073rem + 49.573vw, 13.5rem);
+    }
+
+    @media screen and (min-width: 1600px) {
+      margin-left: 2rem;
+    }
+
+    @media screen and (min-width: 1664px) {
+      margin-left: clamp(2rem, 50vw - 50rem, 10rem);
+    }
+  }
+
+  .glider-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .carousel-dash.glider-dots {
+    position: relative;
+    display: flex;
+    gap: 0.25rem;
+    margin-top: 1.5rem;
+    z-index: 5;
+
+    .glider-dot {
+      margin: 0;
+      padding: 0;
+      width: 20px;
+      height: 4px;
+      border: none;
+      background-color: var(--e-global-color-text);
+      transition: all 0.3s ease-out;
+
+      &.active {
+        background-color: var(--e-global-color-primary);
+        width: 28px;
+      }
+    }
+  }
+}

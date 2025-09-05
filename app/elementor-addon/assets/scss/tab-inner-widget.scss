@@ -1,0 +1,245 @@
+.elementor-widget-tab-card {
+  width: 100%;
+}
+
+.tab-widget-section {
+  position: relative;
+
+  * {
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 816px;
+    height: 816px;
+    background: linear-gradient(180deg, #0e7bf8 0%, rgba(14, 123, 248, 0) 86.35%);
+    filter: blur(200px);
+    border-radius: 100%;
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(-184px);
+
+    @media screen and (min-width: 1024px) {
+      filter: blur(400px);
+    }
+  }
+}
+
+.nested-tab-widget {
+  .title-text {
+    max-width: 54.5rem;
+    margin-inline: auto;
+    text-align: center;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-block: 0 0.75rem;
+
+      @media screen and (min-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 2.75rem;
+      }
+    }
+
+    p {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: #b2b4b5;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .primary-tabs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2.25rem;
+  }
+
+  .primary-tab {
+    padding: 1rem;
+    border-color: transparent;
+    background: var(--e-global-color-d77e5e1);
+    font-size: 0.75rem;
+    transition: border-color 0.3s ease-out;
+
+    &.active,
+    &:hover {
+      border-color: var(--e-global-color-primary);
+      background: var(--e-global-color-d77e5e1);
+    }
+  }
+
+  .main-content {
+    display: grid;
+    margin-top: 5rem;
+
+    > * {
+      grid-area: 1 / -1;
+    }
+  }
+
+  .accordion {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+    margin-top: 0.625rem;
+
+    &.active {
+      grid-template-rows: 1fr;
+    }
+
+    > div {
+      overflow: hidden;
+    }
+  }
+
+  .primary-tab-contents {
+    display: grid;
+    opacity: 0;
+    gap: 2rem;
+    transition: opacity 0.6s ease-out;
+    pointer-events: none;
+
+    @media screen and (min-width: 960px) {
+      grid-template-columns: 572fr 406fr;
+      gap: clamp(2rem, 18.2266vw - 8.936rem, 6.625rem);
+    }
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  // Left column of main content
+  .inner-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-self: flex-start;
+  }
+
+  // Right column of main content
+  .inner-tabs-image {
+    display: grid;
+    width: auto;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+  }
+
+  .inner-tab {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+
+    // Make everything appear on top of the before pseudo element (gradient)
+    * {
+      z-index: 1;
+    }
+
+    &:has(.accordion.active) {
+      cursor: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(152.42deg, #161d26 -12.74%, rgba(22, 29, 38, 0.5) 83.93%);
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+
+    &.active,
+    &:hover {
+      border: 1px solid #ffffff26;
+      border-radius: 8px;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &__first-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      // Make the default icon appear white
+      .e-fas-star {
+        fill: white;
+      }
+    }
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__image {
+      &--desktop,
+      &--mobile {
+        display: flex;
+        justify-content: center;
+      }
+
+      &--desktop {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+
+        &.active {
+          opacity: 1;
+        }
+
+        @media screen and (min-width: 960px) {
+          display: block;
+        }
+      }
+
+      // Mobile image is in the main accordion
+      &--mobile {
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: 960px) {
+          display: none;
+        }
+      }
+
+      img {
+        width: min(32.5rem, 100%);
+      }
+    }
+  }
+}

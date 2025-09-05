@@ -1,0 +1,258 @@
+.elementor-widget-chart-graph {
+  width: 100%;
+}
+
+.chart-widget {
+  .widget-title {
+    width: fit-content;
+    margin-bottom: 3rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .toggleBtn--chart {
+    background: #161d26;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: white;
+    transition: all 0.15s ease-out;
+
+    &.active,
+    &:hover {
+      color: white;
+      border-color: #0e7bf8;
+      background: #161d26;
+    }
+  }
+
+  .kineticaBtn {
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    background: #0e7bf8;
+  }
+
+  .benchmark-title {
+    width: fit-content;
+    margin-block: 2rem 0.75rem;
+    margin-inline: auto;
+    font-weight: bold;
+    font-size: var(--e-global-typography-b5c0f06-font-size);
+    text-align: center;
+
+    &:not(:first-of-type) {
+      display: none;
+    }
+  }
+
+  .button-container {
+    display: grid;
+    justify-items: center;
+    row-gap: 0.75rem;
+    text-align: left;
+    margin-block: 3rem 2.25rem;
+    width: fit-content;
+    margin-inline: auto;
+
+    @media screen and (min-width: 640px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .vs-text {
+    padding-inline: 1rem;
+    font-size: var(--e-global-typography-7300e4a-font-size);
+    font-weight: 600;
+    color: white;
+  }
+
+  .toggle-button-container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .subtitle {
+    width: fit-content;
+    margin-inline: auto;
+    color: white;
+    text-align: center;
+  }
+
+  .legend {
+    display: flex;
+    margin-left: auto;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    width: max-content;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .box {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      &:first-of-type .box {
+        background: #0e7bf8;
+      }
+
+      &:nth-of-type(2) .box {
+        background: #585c60;
+      }
+
+      span {
+        color: white;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .chart-wrapper {
+    --max-height: 22.1875rem;
+
+    display: flex;
+    position: relative;
+    isolation: isolate;
+    margin-top: 3.25rem;
+  }
+
+  .scroll-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow-x: scroll;
+    height: var(--max-height, 355px) !important;
+  }
+
+  .chart-container {
+    height: 100%;
+    width: 1560px;
+
+    @media screen and (min-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  .axis-container {
+    position: relative;
+    top: -1rem;
+    width: 4rem;
+    z-index: 2;
+    max-height: var(--max-height, 355px);
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .footer-container {
+    margin-top: 1.75rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid hsla(0, 0%, 100%, 15%);
+    border-radius: 8px;
+
+    .info-text {
+      // text-align: center;
+      color: white;
+      line-height: 1.5;
+      font-size: 0.875rem;
+    }
+
+    .database-versions {
+      margin: 0.5rem auto 0;
+      width: fit-content;
+      line-height: 1.5;
+      text-align: center;
+      font-size: 0.75rem !important;
+    }
+  }
+
+  .results-table-wrapper {
+    // overflow-x: auto;
+    position: relative;
+    padding-top: clamp(4rem, 9.7416vw + 1.8082rem, 10.125rem);
+
+    @media screen and (max-width: 1200px) {
+      overflow-x: scroll;
+    }
+  }
+
+  .results-table {
+    width: calc(100% - 110px);
+    font-size: 85%;
+    margin-bottom: 20px;
+    margin-left: 110px;
+
+    .red {
+      background-color: #cc0000;
+      color: #fff;
+    }
+
+    .yellow {
+      background-color: #e3af06;
+      color: #fff;
+    }
+
+    .green {
+      background-color: #559955;
+      color: #fff;
+    }
+
+    .dark {
+      background-color: #660000;
+      color: #fff;
+    }
+
+    .grey {
+      background-color: #000;
+      color: #fff;
+    }
+
+    td,
+    th {
+      text-align: center;
+      padding: 2px 2px;
+    }
+
+    thead th {
+      font-size: 90%;
+      color: #999;
+      font-weight: normal;
+    }
+
+    td {
+      min-width: 35px;
+      border: 1px solid #fff;
+    }
+
+    .db_name {
+      position: absolute;
+      width: 110px;
+      padding-right: 10px;
+      left: 0;
+      text-align: right;
+    }
+  }
+
+  .github-text {
+    font-size: 90%;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+
+    a {
+      color: #0e7bf8;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,296 @@
+.elementor-widget-tab-card {
+  width: 100%;
+}
+
+.tab-widget-section {
+  position: relative;
+
+  * {
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 816px;
+    height: 816px;
+    background: linear-gradient(180deg, #0e7bf8 0%, rgba(14, 123, 248, 0) 86.35%);
+    filter: blur(200px);
+    border-radius: 100%;
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(-184px);
+
+    @media screen and (min-width: 1024px) {
+      filter: blur(400px);
+    }
+  }
+}
+
+.custom-tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  align-items: center;
+  justify-items: flex-end;
+  row-gap: 2rem;
+
+  @media screen and (min-width: 768px) {
+    column-gap: 4rem;
+    grid-template-columns: 24rem 1fr;
+  }
+
+  @media screen and (min-width: 960px) {
+    grid-template-columns: 27.5rem 1fr;
+  }
+
+  @media screen and (min-width: 1024px) {
+    column-gap: 7rem;
+    // grid-template-columns: 33.25rem 1fr;
+    grid-template-columns: 700fr 524fr;
+  }
+
+  .first-column > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .title-text {
+    h3 {
+      font-size: var(--e-global-typography-ca3e448-font-size);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-block: 0 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      font-size: var(--e-global-typography-db89764-font-size);
+      line-height: 1.6;
+      color: #b2b4b5;
+    }
+
+    &--mobile {
+      grid-column: span 2;
+      justify-self: flex-start;
+
+      @media screen and (min-width: 960px) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @media screen and (min-width: 960px) {
+        display: block;
+      }
+    }
+  }
+
+  .tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-self: flex-start;
+  }
+
+  .tab {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+
+    // Make everything appear on top of the before pseudo element (gradient)
+    * {
+      z-index: 1;
+    }
+
+    &:has(.accordion.active) {
+      cursor: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(152.42deg, #161d26 -12.74%, rgba(22, 29, 38, 0.5) 83.93%);
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+
+    &.active,
+    &:hover {
+      border: 1px solid #ffffff26;
+      border-radius: 8px;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &.active .tab__caret {
+      transform: rotate(180deg);
+    }
+
+    &__first-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2px;
+    }
+
+    &__icon-and-title {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    &__caret {
+      align-self: flex-start;
+      transform-origin: center;
+      transition: transform 0.4s ease-out;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &__list-icon {
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      @media media and (min-width: 768px) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &__list-title {
+      font-size: 1rem;
+      font-weight: 600;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    .description__list-title {
+      color: #bab8be;
+      font-size: 0.875rem;
+    }
+
+    .accordion {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: all 0.4s ease-out;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        overflow-y: hidden;
+      }
+
+      &.active {
+        margin-top: 0.625rem;
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+  &__cta {
+    margin-left: 1.25rem;
+
+    > * + * {
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #bab8be;
+    }
+
+    a {
+      display: block;
+      padding: 0.625rem 1.5rem;
+      width: fit-content;
+      color: white;
+      font-size: 0.875rem;
+      border: 1px solid #0e7bf8;
+      border-radius: 4px;
+      transition: all 0.4s ease-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0e7bf8;
+      }
+    }
+  }
+
+  .custom-tab-contents {
+    // Overlap everything so that everything stays in place and there is a smooth transition.
+    display: grid;
+    width: auto;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+  }
+
+  .tab__animation {
+    transition: all 0.4s ease-out;
+
+    &.active {
+      display: grid;
+      opacity: 1;
+    }
+
+    img {
+      // width: 100%;
+      // max-width: 32.5rem;
+      width: min(32.5rem, 100%);
+    }
+
+    &.mobile {
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: min(25rem, 100%);
+      }
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: grid;
+        justify-items: flex-end;
+        align-content: center;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// For applying a linear gradient to the text in the rag page banner section
+.blur-circle-rag .custom-tabs .title-text h3 {
+  background: linear-gradient(90deg, #ffffff 46.28%, rgba(255, 255, 255, 0.2) 104.96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

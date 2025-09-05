@@ -1,0 +1,46 @@
+.custom-toc-widget {
+  > div {
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: var(--e-global-color-9818128);
+  }
+
+  #toc-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .toc-item {
+    display: flex;
+    gap: 0.5rem;
+
+    &::before {
+      content: '';
+      display: block;
+      min-width: 0.125rem;
+      min-height: 100%;
+      background: var(--e-global-color-aaf96fa);
+      transition: background 0.3s ease-out;
+    }
+
+    a {
+      padding-block: 0.75rem;
+      color: var(--e-global-color-e952d8a);
+      font-weight: 300;
+      line-height: 1.6;
+      transition: color 0.3s ease-out;
+    }
+
+    &.active {
+      &::before {
+        background: var(--e-global-color-primary);
+      }
+
+      a {
+        color: var(--e-global-color-1645d87);
+        font-weight: bold;
+      }
+    }
+  }
+}

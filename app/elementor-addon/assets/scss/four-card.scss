@@ -1,0 +1,284 @@
+.elementor-widget-container {
+  &:has(.card__list) {
+    // padding of 60px to 218px, ranging from 360px to 1366px
+    padding-block: clamp(3.75rem, 0.729rem + 15.105vw, 13.625rem);
+  }
+
+  --brace-width: 4.0625rem;
+
+  $brace-width: 4.0625rem;
+  $brace-height-sm: 2rem;
+  $brace-height-md: 3rem;
+
+  @media screen and (min-width: 1600px) {
+    --brace-width: 5.75rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-inline: auto;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+
+    &__left,
+    &__right {
+      display: grid;
+      position: relative;
+      gap: 0.5rem;
+    }
+
+    &__left {
+      grid-template-rows: auto $brace-height-sm;
+
+      @media screen and (min-width: 640px) {
+        grid-template-rows: auto $brace-height-md;
+      }
+
+      @media screen and (min-width: 1024px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: auto var(--brace-width);
+      }
+    }
+
+    &__right {
+      grid-template-rows: $brace-height-sm auto;
+
+      @media screen and (min-width: 640px) {
+        grid-template-rows: $brace-height-md auto;
+      }
+
+      @media screen and (min-width: 1024px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: var(--brace-width) auto;
+      }
+    }
+
+    &__list {
+      display: grid;
+      // Vertical list
+      grid-template-rows: 1fr 1fr;
+      gap: 1.5rem;
+      padding-left: 0;
+
+      // Horizontal list
+      @media screen and (min-width: 640px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 17.75rem);
+      }
+
+      // Vertical again
+      @media screen and (min-width: 1024px) {
+        grid-template-columns: 17.75rem;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      @media screen and (min-width: 1600px) {
+        grid-template-columns: 25.125rem;
+        gap: 2.25rem;
+      }
+
+      &-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 0.875rem; // Supposed to be 1rem inline padding but it causes issues with the height of the svg
+        background: linear-gradient(152.42deg, #161d26 -12.74%, rgba(22, 29, 38, 0.5) 83.93%);
+        text-align: center;
+        border: 2px solid #ffffff26;
+        border-radius: 8px;
+        z-index: 2;
+        cursor: pointer;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+          padding: 3rem 0.875rem; // Supposed to be 1rem inline padding but it causes issues with the height of the svg
+        }
+
+        @media screen and (min-width: 1600px) {
+          padding: 5rem 1.5rem;
+        }
+
+        // Place everything above the gradient in the pseudo-element
+        * {
+          transition: all 0.4s ease-out;
+          z-index: 3;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          background: linear-gradient(152.42deg, #263447 -12.74%, rgba(22, 29, 38, 0.5) 83.93%);
+          transition: all 0.4s ease-out;
+          z-index: 1;
+        }
+
+        .arrow-container {
+          position: absolute;
+          bottom: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          color: #5ea7fa;
+          width: 100%;
+          font-size: 0.825rem;
+          opacity: 0;
+          transition: all 0.4s ease-out;
+
+          svg {
+            stroke: #5ea7fa;
+          }
+
+          span:nth-child(2) {
+            flex-basis: 18px;
+            font-size: 1rem;
+          }
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+
+          > * {
+            @media screen and (min-width: 768px) {
+              transform: translateY(-1.25rem);
+            }
+
+            @media screen and (min-width: 1600px) {
+              transform: translateY(-1.75rem);
+            }
+          }
+
+          .arrow-container {
+            @media screen and (min-width: 768px) {
+              transform: translateY(-1.25rem);
+              opacity: 1;
+            }
+
+            @media screen and (min-width: 1600px) {
+              transform: translateY(-2.75rem);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &-title {
+        color: white;
+        font-weight: 600;
+        line-height: 1.8;
+
+        @media screen and (min-width: 1600px) {
+          font-size: 1.125rem;
+        }
+      }
+
+      .description__list-title {
+        margin-top: 4px;
+        padding-inline: 2.25rem;
+        color: #b2b4b5;
+        line-height: 1.6;
+        font-size: 0.875rem;
+
+        @media screen and (min-width: 1600px) {
+          padding-inline: 3.75rem;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__center {
+      text-align: center;
+      margin-block: 0.5rem;
+
+      @media screen and (min-width: 1024px) {
+        height: min-content;
+        margin-block: 5.25rem 0;
+      }
+
+      @media screen and (min-width: 1600px) {
+        width: 328px;
+        margin-top: 8.75rem;
+      }
+
+      .card__title {
+        color: #b2b4b5;
+        font-size: 0.75rem;
+
+        @media screen and (min-width: 1600px) {
+          font-size: 0.875rem;
+        }
+
+        &.left {
+          margin-bottom: 2.5rem;
+
+          @media screen and (min-width: 1600px) {
+            margin-bottom: 3.5rem;
+          }
+        }
+
+        &.right {
+          margin-top: 2.5rem;
+
+          @media screen and (min-width: 1600px) {
+            margin-top: 3.5rem;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .brace {
+      position: relative;
+
+      svg {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      &--mobile {
+        display: block;
+
+        @media screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      &--desktop {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+          display: block;
+        }
+      }
+
+      &--closing svg {
+        // reflection on the x-axis, for mobile view only
+        transform-origin: center;
+        transform: scaleY(-1);
+      }
+
+      &--opening svg {
+        // reflection on the y-axis, for desktop view only.
+        transform-origin: center;
+        transform: scaleX(-1);
+      }
+    }
+  }
+}

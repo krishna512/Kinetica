@@ -1,0 +1,172 @@
+// Remove inline padding so that the background image can take the full width
+.elementor-element.e-parent.hero-gradient:has(.new-hero-banner) {
+  @media screen and (min-width: 1024px) {
+    padding-inline: 0;
+  }
+}
+
+.hero-gradient {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 51rem;
+    height: 51rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #0e7bf8 0%, rgba(14, 123, 248, 0) 86.35%);
+    filter: blur(200px);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 70%);
+    opacity: 1;
+    z-index: 0;
+  }
+}
+
+.new-hero-banner {
+  --title: 2.25rem;
+  --width: 23.5rem;
+
+  @media screen and (min-width: 480px) {
+    --title: 2.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    --title: 3.5rem;
+    --width: 40rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    --title: 4.125rem;
+    --width: 44.75rem;
+  }
+
+  @media screen and (min-width: 1600px) {
+    --title: 5.25rem;
+    --width: 51.875rem;
+  }
+
+  position: relative;
+  isolation: isolate;
+
+  .main-title {
+    margin: 0 auto 0;
+    max-width: var(--width);
+    font-size: var(--title);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+
+    span:nth-child(2) {
+      color: var(--e-global-color-5e5ea90);
+    }
+  }
+
+  .background-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-height: 100%;
+    z-index: -1;
+    aspect-ratio: 1366 / 750;
+  }
+
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 3rem auto 0;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: 960px) {
+      grid-template-columns: repeat(4, 10.75rem);
+    }
+
+    @media screen and (min-width: 1600px) {
+      grid-template-columns: repeat(4, 14rem);
+    }
+  }
+
+  .card-link {
+    display: contents;
+  }
+
+  .arrow-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 0;
+    gap: 0.5rem;
+    color: var(--e-global-color-5e5ea90);
+    font-size: 0.625rem;
+    line-height: 1.6;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+
+    svg {
+      width: 1rem;
+    }
+
+    @media screen and (min-width: 1600px) {
+      bottom: 2.125rem;
+    }
+  }
+
+  .card-title {
+    width: 100%;
+    text-align: center;
+    font-size: var(--e-global-typography-d5c3451-font-size);
+    font-weight: 500;
+    margin: 0;
+    padding-top: 0.75rem; // For hover events
+    transition: transform 0.4s ease-out;
+  }
+
+  .card-item {
+    position: relative;
+    display: grid;
+    grid-template-rows: subgrid;
+    place-items: center;
+    grid-row: span 2;
+    gap: 0;
+    padding: 0.75rem 0.75rem 1.25rem 0.75rem;
+    background: var(--e-global-color-d77e5e1);
+    border: 1.5px solid hsla(0, 0%, 100%, 0.15);
+    box-shadow: 0px -4.31px 18.69px 0px hsla(209, 79%, 8%, 1);
+    border-radius: 12px;
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+    overflow: hidden;
+
+    @media screen and (min-width: 1600px) {
+      padding: 3.5rem 1rem;
+    }
+
+    &:hover {
+      border-color: var(--e-global-color-primary);
+      box-shadow:
+        0px 0px 0.19px 0px var(--e-global-color-primary),
+        0px 0px 0.38px 0px var(--e-global-color-primary),
+        0px 0px 1.34px 0px var(--e-global-color-primary),
+        0px 0px 2.69px 0px var(--e-global-color-primary),
+        0px 0px 4.61px 0px var(--e-global-color-primary),
+        0px 0px 8.06px 0px var(--e-global-color-primary);
+
+      .card-title {
+        transform: translateY(-16px);
+      }
+
+      .arrow-container {
+        transform: translateY(-16px);
+        opacity: 1;
+      }
+    }
+  }
+}

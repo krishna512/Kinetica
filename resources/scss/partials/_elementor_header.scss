@@ -1,0 +1,180 @@
+@media screen and (max-width: 1023px) {
+  .e-n-menu {
+    &-title {
+      border-bottom: 1px solid hsla(0, 0%, 100%, 15%) !important;
+    }
+
+    &-wrapper {
+      // To place it just below the navbar
+      top: 30px !important;
+      height: 100dvh;
+      background-color: var(--e-global-color-fd492c2) !important;
+    }
+
+    &-heading {
+      flex-grow: 1;
+      flex-direction: column !important;
+      height: 100%;
+      width: 100%;
+      flex-wrap: nowrap !important;
+
+      .last-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        padding-inline: 0.75rem;
+        justify-content: flex-end;
+        flex-grow: 1;
+
+        // Styling the last two links as buttons
+        .e-link {
+          width: 100%;
+          display: grid;
+          place-items: center;
+          padding-block: 0.625rem;
+          font-weight: 500;
+          font-size: 0.875rem;
+          line-height: 1.6;
+          border-radius: 6px;
+          background-color: transparent;
+          color: var(--e-global-color-primary);
+          border: 1px solid var(--e-global-color-primary);
+          text-align: right;
+          font-weight: 500;
+          transition: all 0.4s ease-out;
+
+          &:hover {
+            background-color: var(--e-global-color-primary);
+          }
+        }
+
+        // Push the buttons to the bottom
+        > .e-n-menu-title {
+          align-items: flex-end;
+          margin-bottom: 1rem;
+          padding-inline: 0;
+
+          // Fill in the second button
+          &:nth-child(2) a {
+            background: var(--e-global-color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  // Hide the last two menu items on large screens - 'AI workshop' and 'Talk to us'
+  .e-n-menu-heading > li:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+
+// Styling the featured post card
+.e-n-menu-content {
+  .featured-post {
+    border-radius: 8px;
+
+    .featured-image {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+
+    &__contents {
+      padding: 1rem 0.75rem;
+      background-color: hsl(0, 0%, 97%);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .categories {
+      padding: 0.25rem 0.625rem;
+      font-size: 0.75rem;
+      font-weight: 300;
+      border: 1px solid var(--e-global-color-primary);
+      border-radius: 4px;
+      transition: background-color 0.4s ease-out;
+      color: var(--e-global-color-1645d87);
+      transition: color 0.4s ease-out;
+    }
+
+    &__title {
+      margin-block: 0.75rem 0.25rem;
+    }
+
+    h2 {
+      display: inline;
+      color: hsl(0, 5%, 4%);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      color: hsl(258, 24%, 30%);
+      font-size: 0.625rem;
+    }
+
+    .post-excerpt {
+      @apply line-clamp-2;
+
+      color: hsl(258, 24%, 30%);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    &__footer {
+      margin-top: 0.75rem;
+
+      .learn-more {
+        color: var(--e-global-color-primary);
+        font-size: 0.625rem;
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+      }
+
+      svg {
+        width: 1.125rem;
+        height: 0.5rem;
+
+        path {
+          fill: var(--e-global-color-primary);
+        }
+      }
+    }
+
+    &:hover .featured-post__footer .learn-more {
+      opacity: 1;
+    }
+  }
+}
+
+// Centre and restrict the widths of the dropdown menus on larger screens
+header .e-n-menu-heading {
+  // 64px to take into account the inline margins of the navbar
+  $max-restricted-width: calc(100vw - 64px);
+
+  .e-n-menu-item .e-n-menu-content > div {
+    @media screen and (min-width: 1024px) {
+      left: 50% !important;
+      margin-left: 0 !important;
+      max-width: $max-restricted-width;
+      transform: translateX(-50%);
+    }
+  }
+}

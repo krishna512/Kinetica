@@ -1,0 +1,89 @@
+pre.line-numbers .line-numbers-rows {
+  width: 0.938rem;
+  left: -1.438rem;
+  border: 0;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/**
+**  DM Code Plugin
+**/
+
+.dm-slim-version #dm-code-raw {
+  font-size: 0.75rem;
+  line-height: 2;
+  font-family: 'Fira Code', monospace;
+
+  @media screen and (min-width: 1600px) {
+    font-size: 0.875rem;
+  }
+}
+
+.dm-code-snippet.dark {
+  margin: 0;
+  padding: 0;
+}
+
+.dm-code-snippet.dark code[class*='language-'],
+.dm-code-snippet.dark pre[class*='language-'],
+.dm-code-snippet.dark .token.boolean,
+.dm-code-snippet.dark .token.number {
+  color: #fff;
+}
+
+.dm-code-snippet.dark .token.keyword {
+  color: #6bc8ff;
+}
+
+.dm-code-snippet.dark .token.comment {
+  color: #808080;
+}
+
+.dm-code-snippet.dark .token.string {
+  color: #54c667;
+}
+
+.dm-code-snippet.dark .token.function {
+  color: #daadfc;
+}
+
+// .dm-code-snippet.dark .token.selector,
+// .dm-code-snippet.dark .token.attr-name,
+// .dm-code-snippet.dark .token.char,
+// .dm-code-snippet.dark .token.builtin,
+// .dm-code-snippet.dark .token.inserted {
+//   color: #d39aff;
+// }
+
+// .dm-code-snippet.dark .token.operator,
+// .dm-code-snippet.dark .token.entity,
+// .dm-code-snippet.dark .token.url,
+// .dm-code-snippet.dark .style .token.string,
+// .dm-code-snippet.dark .token.variable {
+//   color: #ffa099;
+// }
+
+//  Code highlight button in single blog page
+.blog-content .dm-code-snippet {
+  .control-language {
+    padding-top: 2.75rem; // Give extra space to the copy button
+    transform: rotate(0deg); // Trick for fixed positioning of copy button
+  }
+
+  #dm-copy-raw-code {
+    position: fixed;
+    display: flex;
+    left: calc(100% - 5rem);
+    top: 0.875rem;
+    gap: 0.25rem;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: none;
+
+    span {
+      font-size: 0.75rem;
+      color: #161d26;
+      letter-spacing: 0.005em;
+    }
+  }
+}

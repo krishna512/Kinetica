@@ -1,0 +1,170 @@
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animating-slider {
+  @apply relative w-full flex items-center flex-col;
+}
+
+.slider-progress-bar {
+  @apply flex max-w-6 w-full relative;
+}
+
+.play-btn svg {
+  @apply text-[1.313rem] mr-[0.188rem];
+}
+
+.slider-progress-bar .progress {
+  @apply flex flex-col gap-1 w-full;
+}
+
+.slider-progress-bar .dropdown_icon {
+  @apply ml-[0.188rem];
+  svg {
+    fill: var(--e-global-color-primary);
+  }
+}
+
+.slider-progress-bar .progress .bar {
+  @apply h-1 w-full bg-white appearance-none;
+}
+
+.swiper {
+  @apply w-full;
+}
+
+.text-swiper,
+.content-swiper {
+  @apply m-0;
+}
+
+.text-swiper h1 {
+  @apply m-0 leading-none inline-block;
+}
+
+.content-swiper {
+  @apply mt-[0.813rem];
+
+  .content {
+    @apply h-[6.875rem] overflow-hidden text-ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+}
+
+.custom-select {
+  @apply absolute top-0 z-10 left-0 w-full h-full;
+}
+
+.custom-select .placeholder {
+  @apply flex items-center w-full h-full;
+}
+
+.custom-select .placeholder .empty-space {
+  @apply grow w-full;
+}
+
+.custom-select .placeholder svg {
+  @apply pl-[0.625rem] text-[0.625rem] shrink-0;
+}
+
+.custom-select .dropdown {
+  @apply flex flex-col bg-white;
+}
+
+/**
+*============================================================
+* code editor
+*============================================================
+*/
+
+.code-swiper {
+  @apply max-w-[32.063rem] mt-9;
+
+  .dm-code-snippet.dark .control-language,
+  .dm-code-snippet.dark pre[class*='language-'] {
+    @apply bg-transparent p-0 m-0;
+  }
+
+  .dm-code-snippet.dark pre[class*='language-'] {
+    padding: 2rem 1.5rem;
+  }
+
+  .swiper-slide {
+    @apply relative rounded-[0.625rem];
+    padding: 2px;
+  }
+
+  .code-snippet-wrapper {
+    @apply relative rounded-[0.625rem];
+    background: #060407 url('../images/code-bg.png') center top;
+
+    &:after {
+      content: '';
+      @apply absolute;
+      --borderWidth: 2px;
+      top: calc(-1 * var(--borderWidth));
+      left: calc(-1 * var(--borderWidth));
+      height: calc(100% + var(--borderWidth) * 2);
+      width: calc(100% + var(--borderWidth) * 2);
+      background: linear-gradient(147.08deg, #482563 12.59%, #140d1d 33.49%, #482563 69.27%, #140d1d 97.55%);
+      border-radius: 0.625rem;
+      z-index: -1;
+      animation: animatedgradient 3s ease alternate infinite;
+      background-size: 300% 300%;
+    }
+
+    .custom-scroll-bar {
+      @apply h-72 overflow-auto;
+    }
+  }
+}
+
+div.tutorial-link {
+  @apply relative z-20 pl-2 pt-5 bg-[#060407];
+
+  a {
+    @apply flex text-white gap-2 items-center;
+
+    span {
+      @apply text-sm leading-[1.3];
+    }
+
+    svg {
+      @apply text-xl text-[#D39AFF];
+    }
+  }
+}
+
+div.custom-select {
+  cursor: pointer;
+
+  .dropdown {
+    @apply absolute py-3 px-5 rounded-[0.5rem] w-full;
+    background: rgb(8, 5, 11);
+    background: linear-gradient(180deg, rgba(8, 5, 11, 1) 0%, rgba(8, 5, 11, 1) 27%, rgba(37, 34, 41, 1) 100%);
+
+    a {
+      @apply py-3 px-0 text-white;
+      border-bottom: 0.0625rem solid #252229;
+
+      &:hover {
+        color: #d39aff;
+      }
+    }
+  }
+}
+
+//responsive
+.dropdown {
+  @apply max-w-full;
+}
